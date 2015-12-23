@@ -1,0 +1,26 @@
+#!/bin/bash
+
+set -e
+
+function usage() {
+    echo ""
+    echo "git goto [name]"
+    echo ""
+    echo "  This command searches for a branch that has indicated string in it and checkout to it."
+}
+
+BRANCH=${1:-"master"}
+
+# actually parse the options and do stuff
+while [[ $1 = -?* ]]; do
+    case $1 in
+        -h|--help)
+            usage
+            exit 0
+            ;;
+        *) ;;
+    esac
+shift
+done
+
+git checkout $(git branch | grep ${BRANCH} | tail -1 | xargs)
