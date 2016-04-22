@@ -6,7 +6,6 @@ function usage() {
     echo ""
     echo "git goto [name]"
     echo ""
-    echo "  This command searches for a branch that has indicated string in it and checkout to it."
 }
 
 BRANCH=${1:-"master"}
@@ -20,6 +19,7 @@ while [[ $1 = -?* ]]; do
             ;;
         *) ;;
     esac
+
 shift
 done
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+QUERY=${1}
+
+git branch | grep ${QUERY}
